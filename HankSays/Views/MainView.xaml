@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HankSays.ViewModels"
+             x:Class="HankSays.Views.MainView">
+
+
+ <ContentPage.BindingContext>
+     <local:MainViewModel />
+ </ContentPage.BindingContext>
+  
+
+    <ContentPage.Content>
+      <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                 <RowDefinition Height="*"/>
+                 <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                 <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Hank Says" FontSize="24"  TextColor="Black"
+              HorizontalOptions="EndAndExpand" />
+
+
+            <Button Grid.Row="1"  Grid.Column="0"  BackgroundColor="Red"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="R"/>
+            <Button Grid.Row="1"  Grid.Column="1"  BackgroundColor="Gold"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="Y"/>
+            <Button Grid.Row="2" Grid.Column="0"  BackgroundColor="Green"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="G"/>
+            <Button Grid.Row="2" Grid.Column="1"  BackgroundColor="Blue" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="B"/>
+      </Grid>
+    </ContentPage.Content>
+</ContentPage>
