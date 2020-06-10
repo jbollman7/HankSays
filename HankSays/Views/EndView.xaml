@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HankSays.ViewModels"
+             x:Class="HankSays.Views.EndView">
+    
+    <ContentPage.BindingContext>
+        <local:EndViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="You Lost, Game Over"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button Text="Retry"
+                    Command="{Binding BackToStartCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

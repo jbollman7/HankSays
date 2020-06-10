@@ -5,20 +5,19 @@ using HankSays.Annotations;
 using HankSays.Views;
 using Xamarin.Forms;
 
-
-namespace HankSays.ViewModels 
+namespace HankSays.ViewModels
 {
-    public class StartViewModel : INotifyPropertyChanged
+    public class EndViewModel : INotifyPropertyChanged
     {
-        public StartViewModel()
+
+        public EndViewModel()
         {
-            LaunchGamePlayCommand = new Command(() =>
+            BackToStartCommand = new Command(() =>
             {
-                Application.Current.MainPage = new NavigationPage(new MainView());
+                Application.Current.MainPage = new NavigationPage(new StartView());
             });
         }
-        public ICommand LaunchGamePlayCommand { get; }
-
+        public ICommand BackToStartCommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

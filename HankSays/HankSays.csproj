@@ -25,10 +25,17 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\EndView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EndView.xaml.cs">
+      <DependentUpon>EndView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

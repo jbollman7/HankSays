@@ -17,8 +17,7 @@ namespace HankSays.Models
             AiChoiceList = new List<string>();
             UserSelectionList = new List<string>();
         }
-
-
+        
         public void IncrementAiList()
         {
             var values = Enum.GetValues(typeof(AiChoiceGenerator));
@@ -35,6 +34,7 @@ namespace HankSays.Models
             {
                 if (AiChoiceList[i] != UserSelectionList[i])
                     return false;
+               
             }
 
             return true;

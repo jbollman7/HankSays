@@ -10,7 +10,7 @@ namespace HankSays
         {
             InitializeComponent();
 
-            MainPage = new MainView();
+            MainPage = new StartView();
         }
 
         protected override void OnStart()

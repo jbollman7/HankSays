@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using HankSays.Models;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using HankSays.ViewModels;
+using HankSays.Views;
+using Xamarin.Forms;
 
 
 namespace HankSays.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
-       
-        private int level = 0;
+        private string _redChoice;
+        private string _yellowChoice;
+        private string _greenChoice;
+        private string _blueChoice;
+        
+        public int level = 0;
         //private List<string> UserSelectionList;
         private GameModel GM;
         public MainViewModel()
         {
+            resetLevel();
+            SetColorsToNormalState();
             GM = new GameModel();
             Initialize();
            UserSelectionCommand = new Command<string> (IncrementUserList);
@@ -25,59 +37,141 @@ namespace HankSays.ViewModels
         private void Initialize()
         {
             GM.IncrementAiList();
-            level++;
-            //UserSelectedEnoughChoicies();
+            AiShowsPattern();
+
+            
         }
         public Command UserSelectionCommand { get; }
 
         
-        private bool UserSelectedEnoughChoicies()
-        {
-            //
-            return GM.AiChoiceList.Count == GM.UserSelectionList.Count;
-        }
-
-
         private void IncrementUserList(string choice)
         {
             GM.UserSelectionList.Add(choice);
+           CheckLists();
+        }
+        private void SetColorsToNormalState()
+        {
+            RedChoice = "Red";
+            YellowChoice = "Gold";
+            GreenChoice = "Green";
+            BlueChoice = "Blue";
+        }
+
+        private async void CheckLists()
+        {
             if (GM.UserSelectionList.Count == GM.AiChoiceList.Count)
                 if (GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList))
                 {
-                    //Application.Current.MainPage.DisplayAlert("Alert", "Correct", "OK").Wait();
+                    //await Application.Current.MainPage.DisplayAlert("Alert", "Correct", "OK");
+                    Level++;
                     Initialize();
                 }
                 else
                 {
-                    Console.WriteLine("YO");//Application.Current.MainPage.DisplayAlert("Alert", "Wrong", "OK").Wait();
+                    //Console.WriteLine("YO");
+                    //await Application.Current.MainPage.DisplayAlert("Alert", "Wrong", "OK");
                     //EndscreenPlayAgain?
+                    Application.Current.MainPage = new NavigationPage(new EndView());
                 }
-            
         }
-        
-        /*
-        private void IncrementUserList(string choice)
+        public int Level
         {
-            if (GM.UserSelectionList.Count == GM.AiChoiceList.Count)
+            get => Preferences.Get(nameof(Level), 0);
+            set
             {
-                if (GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList))
-                    Application.Current.MainPage.DisplayAlert("Alert", "Correct", "OK").Wait();
-                else
+                Preferences.Set(nameof(Level), value);
+                var args = new PropertyChangedEventArgs(nameof(Level));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void resetLevel()
+        {
+            var levelKey = Preferences.ContainsKey(nameof(Level));
+            if (levelKey)
+                Preferences.Remove(nameof(Level));
+        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        
+        //Visuals
+        public void AiShowsPattern()
+        {
+            for (var i = 0; i < GM.AiChoiceList.Count; i++)
+            {
+                switch (GM.AiChoiceList[i])
                 {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Wrongo", "OK").Wait();
+                    case "R":
+                        RedChoice = "Tomato";
+                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
+                        SetColorsToNormalState();
+                        break;
+                    
+                    case "Y":
+                        YellowChoice = "Yellow";
+                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
+                        SetColorsToNormalState();
+                        break;
+                    
+                    case "G":
+                        GreenChoice = "LawnGreen";
+                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
+                        SetColorsToNormalState();
+                        break;
+                    
+                    case "B":
+                        BlueChoice = "Aqua";
+                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
+                        SetColorsToNormalState();
+                        break;
+                    
                 }
             }
-            else
-            {
-                GM.UserSelectionList.Add(choice);
-            }
-            
         }
-        */
-        //if (UserSelectedEnoughChoicies())
-            //    GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList);
-        //}
-        
+        public string RedChoice
+        {
+            get => _redChoice;
+            set
+            {
+                _redChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(RedChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+        public string YellowChoice
+        {
+            get => _yellowChoice;
+            set
+            {
+                _yellowChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(YellowChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+        public string BlueChoice
+        {
+            get => _blueChoice;
+            set
+            {
+                _blueChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(BlueChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+        public string GreenChoice
+        {
+            get => _greenChoice;
+            set
+            {
+                _greenChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(GreenChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
     }
 }
 
