@@ -17,7 +17,6 @@ namespace HankSays.Models
             AiChoiceList = new List<string>();
             UserSelectionList = new List<string>();
         }
-        
         public void IncrementAiList()
         {
             var values = Enum.GetValues(typeof(AiChoiceGenerator));
@@ -26,7 +25,11 @@ namespace HankSays.Models
             //AiChoiceList.Add(randomColor);
             AiChoiceList.Add((randomColor.ToString()));
         }
-        
+
+        public void ClearUserSelectionList(List<string> UserSelectionList)
+        {
+            UserSelectionList.Clear();
+        }
 
         public bool CompareAiUserList(List<string>AiChoiceList, List<string> UserSelectionList )
         {

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Threading.Tasks;
 using HankSays.Models;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using HankSays.ViewModels;
 using HankSays.Views;
-using Xamarin.Forms;
+//using Xamarin.Forms;
 
 
 namespace HankSays.ViewModels
@@ -19,29 +21,34 @@ namespace HankSays.ViewModels
         private string _yellowChoice;
         private string _greenChoice;
         private string _blueChoice;
-        
-        public int level = 0;
+        private readonly Stopwatch gameStopWatch;
+      
         //private List<string> UserSelectionList;
         private GameModel GM;
         public MainViewModel()
         {
+            
+            gameStopWatch = new Stopwatch();
+            gameStopWatch.Start();
             resetLevel();
             SetColorsToNormalState();
             GM = new GameModel();
             Initialize();
-           UserSelectionCommand = new Command<string> (IncrementUserList);
-          
-           
+            UserSelectionCommand = new Command<string> (IncrementUserList);
+
+            
         }
 
         private void Initialize()
         {
             GM.IncrementAiList();
+            
             AiShowsPattern();
-
+            GM.ClearUserSelectionList(GM.UserSelectionList);
+                
             
         }
-        public Command UserSelectionCommand { get; }
+        public Command UserSelectionCommand { get;}
 
         
         private void IncrementUserList(string choice)
@@ -57,12 +64,11 @@ namespace HankSays.ViewModels
             BlueChoice = "Blue";
         }
 
-        private async void CheckLists()
+        private void CheckLists()
         {
             if (GM.UserSelectionList.Count == GM.AiChoiceList.Count)
                 if (GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList))
                 {
-                    //await Application.Current.MainPage.DisplayAlert("Alert", "Correct", "OK");
                     Level++;
                     Initialize();
                 }
@@ -99,7 +105,7 @@ namespace HankSays.ViewModels
         }
         
         //Visuals
-        public void AiShowsPattern()
+        public async void AiShowsPattern()
         {
             for (var i = 0; i < GM.AiChoiceList.Count; i++)
             {
@@ -107,26 +113,27 @@ namespace HankSays.ViewModels
                 {
                     case "R":
                         RedChoice = "Tomato";
-                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
-                        SetColorsToNormalState();
+                        //gameStopWatch.Elapsed.Seconds
+                        //SetColorsToNormalState();
+                        
                         break;
                     
                     case "Y":
-                        YellowChoice = "Yellow";
-                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
-                        SetColorsToNormalState();
+                        //YellowChoice = "Yellow";
+                        
+                        //SetColorsToNormalState();
                         break;
                     
                     case "G":
-                        GreenChoice = "LawnGreen";
-                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
-                        SetColorsToNormalState();
+                        //GreenChoice = "LawnGreen";
+                       
+                        //SetColorsToNormalState();
                         break;
                     
                     case "B":
-                        BlueChoice = "Aqua";
+                        //BlueChoice = "Aqua";
                         //Thread.Sleep(TimeSpan.FromMilliseconds(700));
-                        SetColorsToNormalState();
+                        //SetColorsToNormalState();
                         break;
                     
                 }
