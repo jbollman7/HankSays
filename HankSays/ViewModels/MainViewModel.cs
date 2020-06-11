@@ -64,12 +64,13 @@ namespace HankSays.ViewModels
             BlueChoice = "Blue";
         }
 
-        private void CheckLists()
+        private async void CheckLists()
         {
             if (GM.UserSelectionList.Count == GM.AiChoiceList.Count)
                 if (GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList))
                 {
                     Level++;
+                    await Task.Delay(800);
                     Initialize();
                 }
                 else
@@ -112,11 +113,12 @@ namespace HankSays.ViewModels
                 switch (GM.AiChoiceList[i])
                 {
                     case "R":
-                        Task tomato = Task.Run( () => RedChoice = "Red");
-                        tomato.Wait(); 
+                        Task Tomato = Task.Run( () => RedChoice = "Tomato");
+                        Tomato.Wait(); 
                         await Task.Delay(800);
-                        Task red = Task.Run( () => RedChoice = "Crimson");
+                        Task red = Task.Run( () => RedChoice = "Red");
                         red.Wait();
+                        await Task.Delay(800);
                         break;
                     
                     case "Y":
@@ -128,23 +130,26 @@ namespace HankSays.ViewModels
                         //YellowChoice = "Yellow";
                         
                         //SetColorsToNormalState();
+                        gold.Wait();
+                        await Task.Delay(800);
                         break;
                     
                     case "G":
-                        Task lawngreen = Task.Run( () => GreenChoice = "Green");
-                        lawngreen.Wait(); 
-                       
-                       
+                        Task lawngreen = Task.Run( () => GreenChoice = "LawnGreen");
+                        lawngreen.Wait();
                         await Task.Delay(800);
                         Task green = Task.Run( () => GreenChoice = "DarkGreen");
+                        green.Wait();
+                        await Task.Delay(800);
                         break;
                     
                     case "B":
-                        Task aqua = Task.Run( () => BlueChoice = "DeepSkyBlue");
+                        Task aqua = Task.Run( () => BlueChoice = "SkyBlue");
                         aqua.Wait(); 
                         await Task.Delay(800);
                         Task blue = Task.Run( () => BlueChoice = "Blue");
                         blue.Wait();
+                        await Task.Delay(800);
                         
                         break;
                     
