@@ -28,8 +28,8 @@ namespace HankSays.ViewModels
         public MainViewModel()
         {
             
-            gameStopWatch = new Stopwatch();
-            gameStopWatch.Start();
+            //gameStopWatch = new Stopwatch();
+            //gameStopWatch.Start();
             resetLevel();
             SetColorsToNormalState();
             GM = new GameModel();
@@ -60,7 +60,7 @@ namespace HankSays.ViewModels
         {
             RedChoice = "Red";
             YellowChoice = "Gold";
-            GreenChoice = "Green";
+            GreenChoice = "DarkGreen";
             BlueChoice = "Blue";
         }
 
@@ -112,28 +112,40 @@ namespace HankSays.ViewModels
                 switch (GM.AiChoiceList[i])
                 {
                     case "R":
-                        RedChoice = "Tomato";
-                        //gameStopWatch.Elapsed.Seconds
-                        //SetColorsToNormalState();
-                        
+                        Task tomato = Task.Run( () => RedChoice = "Red");
+                        tomato.Wait(); 
+                        await Task.Delay(800);
+                        Task red = Task.Run( () => RedChoice = "Crimson");
+                        red.Wait();
                         break;
                     
                     case "Y":
+                        Task yellow = Task.Run( () => YellowChoice = "Yellow");
+                        yellow.Wait();
+                        await Task.Delay(800);
+                        
+                        Task gold = Task.Run( () => YellowChoice = "gold");
                         //YellowChoice = "Yellow";
                         
                         //SetColorsToNormalState();
                         break;
                     
                     case "G":
-                        //GreenChoice = "LawnGreen";
+                        Task lawngreen = Task.Run( () => GreenChoice = "Green");
+                        lawngreen.Wait(); 
                        
-                        //SetColorsToNormalState();
+                       
+                        await Task.Delay(800);
+                        Task green = Task.Run( () => GreenChoice = "DarkGreen");
                         break;
                     
                     case "B":
-                        //BlueChoice = "Aqua";
-                        //Thread.Sleep(TimeSpan.FromMilliseconds(700));
-                        //SetColorsToNormalState();
+                        Task aqua = Task.Run( () => BlueChoice = "DeepSkyBlue");
+                        aqua.Wait(); 
+                        await Task.Delay(800);
+                        Task blue = Task.Run( () => BlueChoice = "Blue");
+                        blue.Wait();
+                        
                         break;
                     
                 }
