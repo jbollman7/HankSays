@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using HankSays.Models;
 using Xamarin.Forms;
 using Xamarin.Essentials;
-using HankSays.ViewModels;
 using HankSays.Views;
 //using Xamarin.Forms;
 
@@ -21,15 +16,10 @@ namespace HankSays.ViewModels
         private string _yellowChoice;
         private string _greenChoice;
         private string _blueChoice;
-        private readonly Stopwatch gameStopWatch;
-      
-        //private List<string> UserSelectionList;
+
         private GameModel GM;
         public MainViewModel()
         {
-            
-            //gameStopWatch = new Stopwatch();
-            //gameStopWatch.Start();
             resetLevel();
             SetColorsToNormalState();
             GM = new GameModel();
@@ -75,9 +65,6 @@ namespace HankSays.ViewModels
                 }
                 else
                 {
-                    //Console.WriteLine("YO");
-                    //await Application.Current.MainPage.DisplayAlert("Alert", "Wrong", "OK");
-                    //EndscreenPlayAgain?
                     Application.Current.MainPage = new NavigationPage(new EndView());
                 }
         }
@@ -127,9 +114,6 @@ namespace HankSays.ViewModels
                         await Task.Delay(800);
                         
                         Task gold = Task.Run( () => YellowChoice = "gold");
-                        //YellowChoice = "Yellow";
-                        
-                        //SetColorsToNormalState();
                         gold.Wait();
                         await Task.Delay(800);
                         break;
@@ -198,6 +182,3 @@ namespace HankSays.ViewModels
         }
     }
 }
-
-
-//TODO While loop that waits and fires only when the userselection count is the same as the Ai selection count.
