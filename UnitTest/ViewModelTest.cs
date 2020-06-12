@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace UnitTest
 {
-    public class Tests : IGame
+    public class ViewModelTest : IMainViewModel
     {
         
         private List<AiChoiceGenerator> AiChoiceList;
@@ -16,15 +16,10 @@ namespace UnitTest
         public void Setup()
         {
             IncrementAiList();
-            BuildUserList();
+           
         }
 
         [Test]
-        public void CompareAIandUserList()
-        {
-            CompareAiUserList();
-        }
-
         public void IncrementAiList()
         {
             AiChoiceList = new List<AiChoiceGenerator>();
@@ -33,16 +28,14 @@ namespace UnitTest
             //mock out list here
         }
 
-        public void BuildUserList()
+        public void ClearUserSelectionList(List<string> userSelectionList)
         {
-            UserChoiceList = new List<AiChoiceGenerator>();
-            UserChoiceList.Add(AiChoiceGenerator.R);
-            UserChoiceList.Add(AiChoiceGenerator.G);
+            throw new NotImplementedException();
         }
 
-        public void CompareAiUserList()
+        public bool CompareAiUserList(List<string> AiChoiceList, List<string> UserSelectionList)
         {
-            var firstNotSecond = AiChoiceList.Except(UserChoiceList).ToList();
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,7 +15,7 @@ using HankSays.Views;
 
 namespace HankSays.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged, IMainViewModel
     {
         private string _redChoice;
         private string _yellowChoice;
