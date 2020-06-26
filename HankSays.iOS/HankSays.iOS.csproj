@@ -133,4 +133,7 @@
       <Name>HankSays</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\resize8.png" />
+  </ItemGroup>
 </Project>

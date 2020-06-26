@@ -21,7 +21,7 @@ namespace HankSays.ViewModels
         private string _yellowChoice;
         private string _greenChoice;
         private string _blueChoice;
-        private readonly Stopwatch gameStopWatch;
+      
       
         //private List<string> UserSelectionList;
         private GameModel GM;
@@ -35,8 +35,6 @@ namespace HankSays.ViewModels
             GM = new GameModel();
             Initialize();
             UserSelectionCommand = new Command<string> (IncrementUserList);
-
-            
         }
 
         private void Initialize()
@@ -196,6 +194,7 @@ namespace HankSays.ViewModels
                 PropertyChanged?.Invoke(this, args);
             }
         }
+        
     }
 }
 
