@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using HankSays.Models;
-using Xamarin.Forms;
-using Xamarin.Essentials;
-using HankSays.ViewModels;
 using HankSays.Views;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 //using Xamarin.Forms;
 
 
@@ -17,12 +12,13 @@ namespace HankSays.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged, IMainViewModel
     {
-        private string _redChoice;
         private string _yellowChoice;
-        private string _greenChoice;
-        private string _blueChoice;
-      
-      
+        private string _orangeChoice;
+        private string _redChoice;
+        private string _pinkChoice;
+        private string _lavenderChoice;
+        private string _purpleChoice;
+
         //private List<string> UserSelectionList;
         private GameModel GM;
         public MainViewModel()
@@ -56,10 +52,13 @@ namespace HankSays.ViewModels
         }
         private void SetColorsToNormalState()
         {
-            RedChoice = "Red";
-            YellowChoice = "Gold";
-            GreenChoice = "DarkGreen";
-            BlueChoice = "Blue";
+            YellowChoice = "#FFBB13";
+            OrangeChoice = "#FF653E";
+            RedChoice = "#FF2F2F";
+            PinkChoice = "DeepPink";
+            LavenderChoice = "MediumOrchid";
+            PurpleChoice = "BlueViolet";
+
         }
 
         private async void CheckLists()
@@ -110,58 +109,60 @@ namespace HankSays.ViewModels
             {
                 switch (GM.AiChoiceList[i])
                 {
-                    case "R":
-                        Task Tomato = Task.Run( () => RedChoice = "Tomato");
-                        Tomato.Wait(); 
+                    case "Y":
+                        Task flash = Task.Run( () => YellowChoice = "Yellow");
+                        flash.Wait(); 
                         await Task.Delay(800);
-                        Task red = Task.Run( () => RedChoice = "Red");
+                        Task yellow = Task.Run( () => YellowChoice = "#FFBB13");
+                        yellow.Wait();
+                        await Task.Delay(800);
+                        break;
+                    
+                    case "O":
+                        Task flash1 = Task.Run( () => OrangeChoice = "Yellow");
+                        flash1.Wait();
+                        await Task.Delay(800);
+                        Task orange = Task.Run( () => OrangeChoice = "#FF653E");
+                        orange.Wait();
+                        await Task.Delay(800);
+                        break;
+                    
+                    case "R":
+                        Task flash2 = Task.Run( () => RedChoice = "Yellow");
+                        flash2.Wait();
+                        await Task.Delay(800);
+                        Task red = Task.Run( () => RedChoice = "#FF2F2F");
                         red.Wait();
                         await Task.Delay(800);
                         break;
                     
-                    case "Y":
-                        Task yellow = Task.Run( () => YellowChoice = "Yellow");
-                        yellow.Wait();
+                    case "P":
+                        Task flash3 = Task.Run( () => PinkChoice = "Yellow");
+                        flash3.Wait(); 
                         await Task.Delay(800);
-                        
-                        Task gold = Task.Run( () => YellowChoice = "gold");
-                        //YellowChoice = "Yellow";
-                        
-                        //SetColorsToNormalState();
-                        gold.Wait();
+                        Task pink = Task.Run( () => PinkChoice = "DeepPink");
+                        pink.Wait();
                         await Task.Delay(800);
                         break;
-                    
-                    case "G":
-                        Task lawngreen = Task.Run( () => GreenChoice = "LawnGreen");
-                        lawngreen.Wait();
+                    case "L":
+                        Task flash4 = Task.Run(() => LavenderChoice = "Yellow");
+                        flash4.Wait();
                         await Task.Delay(800);
-                        Task green = Task.Run( () => GreenChoice = "DarkGreen");
-                        green.Wait();
+                        Task lavender = Task.Run(() => LavenderChoice = "MediumOrchid");
+                        lavender.Wait();
                         await Task.Delay(800);
                         break;
-                    
-                    case "B":
-                        Task aqua = Task.Run( () => BlueChoice = "SkyBlue");
-                        aqua.Wait(); 
+
+                    case "PURP":
+                        Task flash5 = Task.Run(() => PurpleChoice = "Yellow");
+                        flash5.Wait();
                         await Task.Delay(800);
-                        Task blue = Task.Run( () => BlueChoice = "Blue");
-                        blue.Wait();
+                        Task purp = Task.Run(() => PurpleChoice = "BlueViolet");
+                        purp.Wait();
                         await Task.Delay(800);
-                        
                         break;
-                    
+
                 }
-            }
-        }
-        public string RedChoice
-        {
-            get => _redChoice;
-            set
-            {
-                _redChoice = value;
-                var args = new PropertyChangedEventArgs(nameof(RedChoice));
-                PropertyChanged?.Invoke(this, args);
             }
         }
         public string YellowChoice
@@ -174,27 +175,59 @@ namespace HankSays.ViewModels
                 PropertyChanged?.Invoke(this, args);
             }
         }
-        public string BlueChoice
+        public string OrangeChoice
         {
-            get => _blueChoice;
+            get => _orangeChoice;
             set
             {
-                _blueChoice = value;
-                var args = new PropertyChangedEventArgs(nameof(BlueChoice));
+                _orangeChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(OrangeChoice));
                 PropertyChanged?.Invoke(this, args);
             }
         }
-        public string GreenChoice
+        public string RedChoice
         {
-            get => _greenChoice;
+            get => _redChoice;
             set
             {
-                _greenChoice = value;
-                var args = new PropertyChangedEventArgs(nameof(GreenChoice));
+                _redChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(RedChoice));
                 PropertyChanged?.Invoke(this, args);
             }
         }
-        
+        public string PinkChoice
+        {
+            get => _pinkChoice;
+            set
+            {
+                _pinkChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(PinkChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+        public string LavenderChoice
+        {
+            get => _lavenderChoice;
+            set
+            {
+                _lavenderChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(LavenderChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+        public string PurpleChoice
+        {
+            get => _purpleChoice;
+            set
+            {
+                _purpleChoice = value;
+                var args = new PropertyChangedEventArgs(nameof(PurpleChoice));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+
     }
 }
 
