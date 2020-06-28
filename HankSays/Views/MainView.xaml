@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HankSays.ViewModels"
-             x:Class="HankSays.Views.MainView">
-
+             x:Class="HankSays.Views.MainView"
+            NavigationPage.HasNavigationBar="False">
 
  <ContentPage.BindingContext>
      <local:MainViewModel />
@@ -11,31 +11,26 @@
   
 
     <ContentPage.Content>
+        
       <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                 <RowDefinition Height="*"/>
-                 <RowDefinition Height="*"/>
+        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *">
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                 <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="24"  TextColor="Black"
-              HorizontalOptions="EndAndExpand"
-              Grid.Row="0"/>
-
-
-            <Button Grid.Row="1"  Grid.Column="0"  BackgroundColor="{Binding RedChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="R"/>
-            <Button Grid.Row="1"  Grid.Column="1"  BackgroundColor="{Binding YellowChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="Y"/>
-            <Button Grid.Row="2" Grid.Column="0"  BackgroundColor="{Binding GreenChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="G"/>
-            <Button Grid.Row="2" Grid.Column="1"  BackgroundColor="{Binding BlueChoice}" 
-                    Command="{Binding UserSelectionCommand}" CommandParameter="B"/>
+          <Button Grid.Row="0"  Grid.Column="0"  BackgroundColor="{Binding YellowChoice}"
+                      Command="{Binding UserSelectionCommand}" CommandParameter="Y"/>
+          <Button Grid.Row="0"  Grid.Column="1"  BackgroundColor="{Binding OrangeChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="O" />
+          <Button Grid.Row="1" Grid.Column="0"  BackgroundColor="{Binding RedChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="R" />
+          <Button Grid.Row="1" Grid.Column="1"  BackgroundColor="{Binding PinkChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="P" />
+          <Button Grid.Row="2" Grid.Column="0"  BackgroundColor="{Binding LavenderChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="L"/>
+          <Button Grid.Row="2" Grid.Column="1"  BackgroundColor="{Binding PurpleChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="PURP"/>
+              
+        </Grid>
+              <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="Black"
+                     HorizontalOptions="Center" VerticalOptions="Center"/>
       </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -2,9 +2,11 @@ namespace HankSays.Models
 {
     public enum AiChoiceGenerator
     {
-        R,
-        Y,
-        G,
-        B
+       Y,
+       O,
+       R,
+       P,
+       L,
+       PURP
     }
 }

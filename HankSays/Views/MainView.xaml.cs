@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using HankSays.ViewModels;
+using Xamarin.Forms;
 
 namespace HankSays.Views
 {
@@ -6,7 +7,9 @@ namespace HankSays.Views
     {
         public MainView()
         {
+           
             InitializeComponent();
+            BindingContext = new MainViewModel();
         }
     }
 }

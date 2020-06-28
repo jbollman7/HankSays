@@ -3,17 +3,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HankSays.ViewModels"
-             x:Class="HankSays.Views.StartView">
+             x:Class="HankSays.Views.StartView"
+             x:Name="Root"
+             NavigationPage.HasNavigationBar="False">
     
-    <ContentPage.BindingContext>
-        <local:StartViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+
             <Label Text="Hank Says" FontSize="36" VerticalOptions="CenterAndExpand" TextColor="Black"
                    HorizontalOptions="Center" HorizontalTextAlignment="Center" />
-            <Button Text="Start" FontSize="24" TextColor="Black" HorizontalOptions="CenterAndExpand"
-                    Command="{Binding LaunchGamePlayCommand}"/>
-        </StackLayout>
+            <ImageButton Source="resize8" Command="{Binding LaunchGamePlayCommand}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+      
+            </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -18,6 +18,7 @@ namespace HankSays.ViewModels
             });
         }
         public ICommand LaunchGamePlayCommand { get; }
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
