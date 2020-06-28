@@ -13,91 +13,24 @@
     <ContentPage.Content>
         
       <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                 <RowDefinition Height="*"/>
-                 <RowDefinition Height="*"/>
+        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *">
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                 <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-          
-
-       
-
-            <Button Grid.Row="0"  Grid.Column="0"  BackgroundColor="{Binding YellowChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="Y" x:Name="Button" >
-                      <Button.Triggers>
-                              <DataTrigger TargetType="Button"
-                                           Binding="{Binding Source={x:Reference Button}, Path=IsPressed}"
-                                           Value="true">
-                                    <Setter Property="BackgroundColor"
-                                              Value="Yellow"/>
-                              </DataTrigger>
-                      </Button.Triggers>
-              </Button>      
-            <Button Grid.Row="0"  Grid.Column="1"  BackgroundColor="{Binding OrangeChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="O" x:Name="Button1">
-                    <Button.Triggers>
-                            <DataTrigger TargetType="Button"
-                                         Binding="{Binding Source={x:Reference Button1}, Path=IsPressed}"
-                                         Value="true">
-                                    <Setter Property="BackgroundColor"
-                                            Value="Yellow"/>
-                            </DataTrigger>
-                    </Button.Triggers>
-            </Button>
-            <Button Grid.Row="1" Grid.Column="0"  BackgroundColor="{Binding RedChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="R"  x:Name="Button2">
-                    <Button.Triggers>
-                      <DataTrigger TargetType="Button"
-                                   Binding="{Binding Source={x:Reference Button2}, Path=IsPressed}"
-                                   Value="true">
-                              <Setter Property="BackgroundColor"
-                                      Value="Yellow"/>
-                      </DataTrigger>
-              </Button.Triggers>
-            </Button>
-            <Button Grid.Row="1" Grid.Column="1"  BackgroundColor="{Binding PinkChoice}" 
-                    Command="{Binding UserSelectionCommand}" CommandParameter="P" x:Name="Button3">
-                    <Button.Triggers>
-                            <DataTrigger TargetType="Button"
-                                         Binding="{Binding Source={x:Reference Button3}, Path=IsPressed}"
-                                         Value="true">
-                                    <Setter Property="BackgroundColor"
-                                            Value="Yellow"/>
-                            </DataTrigger>
-                    </Button.Triggers>
-            </Button>
+          <Button Grid.Row="0"  Grid.Column="0"  BackgroundColor="{Binding YellowChoice}"
+                      Command="{Binding UserSelectionCommand}" CommandParameter="Y"/>
+          <Button Grid.Row="0"  Grid.Column="1"  BackgroundColor="{Binding OrangeChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="O" />
+          <Button Grid.Row="1" Grid.Column="0"  BackgroundColor="{Binding RedChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="R" />
+          <Button Grid.Row="1" Grid.Column="1"  BackgroundColor="{Binding PinkChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="P" />
           <Button Grid.Row="2" Grid.Column="0"  BackgroundColor="{Binding LavenderChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="L" x:Name="Button4">
-                  <Button.Triggers>
-                          <DataTrigger TargetType="Button"
-                                       Binding="{Binding Source={x:Reference Button4}, Path=IsPressed}"
-                                       Value="true">
-                                  <Setter Property="BackgroundColor"
-                                          Value="Yellow"/>
-                          </DataTrigger>
-                  </Button.Triggers>
-          </Button>
-          
-            <Button Grid.Row="2" Grid.Column="1"  BackgroundColor="{Binding PurpleChoice}" 
-                    Command="{Binding UserSelectionCommand}" CommandParameter="PURP" x:Name="Button5">
-                    <Button.Triggers>
-                            <DataTrigger TargetType="Button"
-                                         Binding="{Binding Source={x:Reference Button5}, Path=P}"
-                                         Value="true">
-                                    <Setter Property="BackgroundColor"
-                                            Value="Yellow"/>
-                            </DataTrigger>
-                    </Button.Triggers>
-            </Button>
-
-            <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="Black"
-                  Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="Center"
-            />
+                    Command="{Binding UserSelectionCommand}" CommandParameter="L"/>
+          <Button Grid.Row="2" Grid.Column="1"  BackgroundColor="{Binding PurpleChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="PURP"/>
+              
+        </Grid>
+              <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="Black"
+                     HorizontalOptions="Center" VerticalOptions="Center"/>
       </Grid>
     </ContentPage.Content>
 </ContentPage>
