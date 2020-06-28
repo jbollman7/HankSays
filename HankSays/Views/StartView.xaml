@@ -23,7 +23,7 @@
                 </DataTrigger>
             </StackLayout.Triggers>
 
-            <Image Source="resize8"/>
+            <Image Source="resize8" />
             <Button Text="Start" FontSize="24" TextColor="Black" HorizontalOptions="CenterAndExpand"
                     Command="{Binding LaunchGamePlayCommand}"/>
             </StackLayout>

@@ -23,9 +23,6 @@ namespace HankSays.ViewModels
         private GameModel GM;
         public MainViewModel()
         {
-            
-            //gameStopWatch = new Stopwatch();
-            //gameStopWatch.Start();
             resetLevel();
             SetColorsToNormalState();
             GM = new GameModel();
@@ -36,11 +33,8 @@ namespace HankSays.ViewModels
         private void Initialize()
         {
             GM.IncrementAiList();
-            
             AiShowsPattern();
             GM.ClearUserSelectionList(GM.UserSelectionList);
-                
-            
         }
         public Command UserSelectionCommand { get;}
 
@@ -67,14 +61,11 @@ namespace HankSays.ViewModels
                 if (GM.CompareAiUserList(GM.AiChoiceList, GM.UserSelectionList))
                 {
                     Level++;
-                    await Task.Delay(800);
+                    await Task.Delay(1000);
                     Initialize();
                 }
                 else
                 {
-                    //Console.WriteLine("YO");
-                    //await Application.Current.MainPage.DisplayAlert("Alert", "Wrong", "OK");
-                    //EndscreenPlayAgain?
                     Application.Current.MainPage = new NavigationPage(new EndView());
                 }
         }

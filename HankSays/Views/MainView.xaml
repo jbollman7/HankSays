@@ -41,7 +41,7 @@
                     Command="{Binding UserSelectionCommand}" CommandParameter="PURP"/>
 
             <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="Black"
-                  Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalOptions="Center"
+                  Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Center"
             />
       </Grid>
     </ContentPage.Content>
