@@ -14,7 +14,7 @@ namespace HankSays.Views
     {
         public StartView()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+         
             InitializeComponent();
             BindingContext = new StartViewModel();
         }

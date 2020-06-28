@@ -4,28 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HankSays.ViewModels"
              x:Class="HankSays.Views.StartView"
-             x:Name="Root">
+             x:Name="Root"
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
         <StackLayout>
 
             <Label Text="Hank Says" FontSize="36" VerticalOptions="CenterAndExpand" TextColor="Black"
                    HorizontalOptions="Center" HorizontalTextAlignment="Center" />
-            <Switch x:Name="styleSwitch" 
-                   IsToggled="{Binding MainViewModel.DarkMode, Mode=TwoWay}" />
-            <StackLayout.Triggers>
-                <DataTrigger TargetType="Layout"
-                             Binding="{Binding Source={x:Reference styleSwitch}, Path=IsToggled}"
-                             Value="true">
-                    <Setter Property="BackgroundColor"
-                            Value="Gray"/>
-                   
-                </DataTrigger>
-            </StackLayout.Triggers>
-
-            <Image Source="resize8" />
-            <Button Text="Start" FontSize="24" TextColor="Black" HorizontalOptions="CenterAndExpand"
-                    Command="{Binding LaunchGamePlayCommand}"/>
+            <ImageButton Source="resize8" Command="{Binding LaunchGamePlayCommand}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+      
             </StackLayout>
         
     </ContentPage.Content>

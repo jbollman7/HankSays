@@ -7,7 +7,7 @@ namespace HankSays.Views
     {
         public MainView()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+           
             InitializeComponent();
             BindingContext = new MainViewModel();
         }

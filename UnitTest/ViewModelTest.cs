@@ -24,7 +24,7 @@ namespace UnitTest
         {
             AiChoiceList = new List<AiChoiceGenerator>();
             AiChoiceList.Add(AiChoiceGenerator.R);
-            AiChoiceList.Add(AiChoiceGenerator.G);
+            AiChoiceList.Add(AiChoiceGenerator.L);
             //mock out list here
         }
 
