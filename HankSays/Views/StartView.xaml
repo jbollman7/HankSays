@@ -8,10 +8,10 @@
              NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="CornflowerBlue">
 
-            <Label Text="Hank Says" FontSize="36" VerticalOptions="CenterAndExpand" TextColor="Black"
-                   HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+            <Label Text="Hanky Says" FontSize="64" FontFamily="hankfont" VerticalOptions="CenterAndExpand" TextColor="Black"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
             <ImageButton Source="resize8" Command="{Binding LaunchGamePlayCommand}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
       
             </StackLayout>

@@ -29,6 +29,9 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
+    <None Remove="BillionDreams_PERSONAL.ttf" />
+    <None Remove="hankfont.ttf" />
+    <EmbeddedResource Include="hankfont.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\StartView.xaml.cs">
