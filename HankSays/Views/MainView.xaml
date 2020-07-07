@@ -15,19 +15,30 @@
       <Grid>
         <Grid ColumnDefinitions="*, *" RowDefinitions="*, *">
 
-         
-          <Button Grid.Row="0" Grid.Column="0"  BackgroundColor="{Binding RedChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="R" />
-          <Button Grid.Row="0" Grid.Column="1"  BackgroundColor="{Binding PinkChoice}" 
-                    Command="{Binding UserSelectionCommand}" CommandParameter="P" />
-          <Button Grid.Row="1" Grid.Column="0"  BackgroundColor="{Binding LavenderChoice}"
-                    Command="{Binding UserSelectionCommand}" CommandParameter="L"/>
-          <Button Grid.Row="1" Grid.Column="1"  BackgroundColor="{Binding PurpleChoice}" 
-                    Command="{Binding UserSelectionCommand}" CommandParameter="PURP"/>
+            <BoxView Color="Black" Grid.Column="0" Grid.RowSpan="2"/>
+            <BoxView Color="Black" Grid.Column="1" Grid.RowSpan="2"/>
+            <BoxView Color="Black" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <BoxView Color="Black" Grid.Row="1" Grid.ColumnSpan="2"/>
+          <ImageButton Grid.Row="0" Grid.Column="0"  Source="resize8"
+                       BackgroundColor="{Binding RedChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="R" 
+                    Clicked="Red_Scaled_Clicked" x:Name="RedButton"/>
+          <ImageButton Grid.Row="0" Grid.Column="1"  Source="resize8"
+                       BackgroundColor="{Binding PinkChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="P" 
+                    Clicked="Pink_Scaled_Clicked" x:Name="PinkButton"/>
+          <ImageButton Grid.Row="1" Grid.Column="0"  Source="resize8"
+                       BackgroundColor="{Binding LavenderChoice}"
+                    Command="{Binding UserSelectionCommand}" CommandParameter="L"
+                    Clicked="Lavender_Scaled_Clicked" x:Name="LavenderButton"/>
+          <ImageButton Grid.Row="1" Grid.Column="1"  Source="resize8"
+                       BackgroundColor="{Binding PurpleChoice}" 
+                    Command="{Binding UserSelectionCommand}" CommandParameter="PURP"
+                    Clicked="Purple_Scaled_Clicked" x:Name="PurpleButton"/>
               
         </Grid>
-              <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="Black"
-                     HorizontalOptions="Center" VerticalOptions="Center"/>
+              <Label Text="{Binding Level, StringFormat='Level: {0}'}" FontSize="36"  TextColor="White"
+                     HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
       </Grid>
     </ContentPage.Content>
 </ContentPage>
