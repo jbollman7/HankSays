@@ -12,8 +12,7 @@ namespace HankSays.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged, IMainViewModel
     {
-        private string _yellowChoice;
-        private string _orangeChoice;
+       
         private string _redChoice;
         private string _pinkChoice;
         private string _lavenderChoice;
@@ -46,8 +45,7 @@ namespace HankSays.ViewModels
         }
         private void SetColorsToNormalState()
         {
-            YellowChoice = "#FFBB13";
-            OrangeChoice = "#FF653E";
+           
             RedChoice = "#FF2F2F";
             PinkChoice = "DeepPink";
             LavenderChoice = "MediumOrchid";
@@ -100,23 +98,7 @@ namespace HankSays.ViewModels
             {
                 switch (GM.AiChoiceList[i])
                 {
-                    case "Y":
-                        Task flash = Task.Run( () => YellowChoice = "Yellow");
-                        flash.Wait(); 
-                        await Task.Delay(800);
-                        Task yellow = Task.Run( () => YellowChoice = "#FFBB13");
-                        yellow.Wait();
-                        await Task.Delay(800);
-                        break;
-                    
-                    case "O":
-                        Task flash1 = Task.Run( () => OrangeChoice = "Yellow");
-                        flash1.Wait();
-                        await Task.Delay(800);
-                        Task orange = Task.Run( () => OrangeChoice = "#FF653E");
-                        orange.Wait();
-                        await Task.Delay(800);
-                        break;
+                   
                     
                     case "R":
                         Task flash2 = Task.Run( () => RedChoice = "Yellow");
@@ -156,26 +138,7 @@ namespace HankSays.ViewModels
                 }
             }
         }
-        public string YellowChoice
-        {
-            get => _yellowChoice;
-            set
-            {
-                _yellowChoice = value;
-                var args = new PropertyChangedEventArgs(nameof(YellowChoice));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
-        public string OrangeChoice
-        {
-            get => _orangeChoice;
-            set
-            {
-                _orangeChoice = value;
-                var args = new PropertyChangedEventArgs(nameof(OrangeChoice));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
+       
         public string RedChoice
         {
             get => _redChoice;

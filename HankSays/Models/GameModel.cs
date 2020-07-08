@@ -42,5 +42,15 @@ namespace HankSays.Models
 
             return true;
         }
+        public bool CheckLists()
+        {
+            if (UserSelectionList.Count == AiChoiceList.Count)
+                if (CompareAiUserList(AiChoiceList, UserSelectionList))
+                {
+                    return true;
+                }
+
+            return false;
+        }
     }
 }
