@@ -32,6 +32,10 @@
     <None Remove="BillionDreams_PERSONAL.ttf" />
     <None Remove="hankfont.ttf" />
     <EmbeddedResource Include="hankfont.ttf" />
+    <EmbeddedResource Update="Views\PlayerWonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\StartView.xaml.cs">
@@ -39,6 +43,9 @@
     </Compile>
     <Compile Update="Views\EndView.xaml.cs">
       <DependentUpon>EndView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerWonView.xaml.cs">
+      <DependentUpon>PlayerWonView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

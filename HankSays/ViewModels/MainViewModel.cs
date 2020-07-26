@@ -60,6 +60,10 @@ namespace HankSays.ViewModels
                 {
                     Level++;
                     await Task.Delay(1000);
+                    if (Level >= 2)
+                    {
+                        PlayerWon();
+                    }
                     Initialize();
                 }
                 else
@@ -138,7 +142,12 @@ namespace HankSays.ViewModels
                 }
             }
         }
-       
+
+        public async void PlayerWon()
+        {
+            Application.Current.MainPage = new NavigationPage(new PlayerWonView());
+
+        }
         public string RedChoice
         {
             get => _redChoice;
