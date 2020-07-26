@@ -60,7 +60,7 @@ namespace HankSays.ViewModels
                 {
                     Level++;
                     await Task.Delay(1000);
-                    if (Level >= 2)
+                    if (Level >= 13)
                     {
                         PlayerWon();
                     }

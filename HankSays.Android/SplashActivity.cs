@@ -35,7 +35,7 @@ namespace HankSays.Droid
         private async void SimulateStartup()
         {
             Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-            await Task.Delay(4000); // Simulate a bit of startup work.
+            await Task.Delay(1); // Simulate a bit of startup work.
             Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));
         }

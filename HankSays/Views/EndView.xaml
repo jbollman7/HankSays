@@ -14,7 +14,8 @@
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />
             <Button Text="Retry"
-                    Command="{Binding BackToStartCommand}"/>
+                    Command="{Binding BackToStartCommand}"
+                    />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
