@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace HankSays.Droid
 {
-    [Activity(Label = "HankSays", Icon = "@drawable/hanksayslogo", Theme = "@style/MainTheme",
+    [Activity(Label = "HankSays", Icon = "@drawable/hanksayslogo, Theme = "@style/MainTheme",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
