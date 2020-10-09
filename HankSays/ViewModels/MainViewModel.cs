@@ -143,7 +143,7 @@ namespace HankSays.ViewModels
             }
         }
 
-        public void PlayerWon()
+        public async void PlayerWon()
         {
             Application.Current.MainPage = new NavigationPage(new PlayerWonView());
 
