@@ -26,12 +26,12 @@ namespace HankSays.Models
             AiChoiceList.Add((randomColor.ToString()));
         }
 
-        public void ClearUserSelectionList(List<string> UserSelectionList)
+        public void ClearUserSelectionList(List<string> UserSelectionList)// rename from UserSelectionList to userSelectionList. ex: public void ClearUserSelectionList(List<string> userSelectionList)
         {
             UserSelectionList.Clear();
         }
 
-        public bool CompareAiUserList(List<string>AiChoiceList, List<string> UserSelectionList )
+        public bool CompareAiUserList(List<string>AiChoiceList, List<string> UserSelectionList ) // rename  AiChoiceList to aiChoiceList and UserSelectionList to userSelectionList
         {
             for (var i = 0; i < AiChoiceList.Count; i++)
             {
